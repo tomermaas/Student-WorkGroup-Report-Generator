@@ -16,7 +16,7 @@ from datetime import datetime, timedelta
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="Student Report Generator", page_icon="📊")
 
-st.title("📊 Kidum Student Reports")
+st.title("Kidum Student WorkGroups Reports")
 st.write("Enter your credentials to download the latest student work group data.")
 
 # --- 1. SESSION STATE SETUP (Keeps you logged in) ---
@@ -25,7 +25,7 @@ if 'auth_token' not in st.session_state:
 
 # --- 2. SIDEBAR: LOGIN ---
 with st.sidebar:
-    st.header("🔐 Login")
+    st.header("Login")
     email = st.text_input("Email")
     password = st.text_input("Password", type="password")
 
@@ -55,7 +55,7 @@ with st.sidebar:
 # --- 3. MAIN APP LOGIC ---
 if st.session_state.auth_token:
     st.divider()
-    st.subheader("📥 Generate Report")
+    st.subheader("Generate Report")
 
     # Fetch Data Button
     if st.button("Load Data from Server"):
@@ -99,7 +99,7 @@ if st.session_state.auth_token:
         sun_start = today - timedelta(idx)
         sat_end = sun_start + timedelta(days=6)
 
-        st.info(f"📅 Current Week Scope: **{sun_start}** to **{sat_end}**")
+        st.info(f"Current Week Scope: **{sun_start}** to **{sat_end}**")
 
         # User Choice
         report_type = st.radio(
@@ -167,7 +167,7 @@ if st.session_state.auth_token:
 
             timestamp = datetime.now().strftime("%Y%m%d_%H%M")
             st.download_button(
-                label=f"⬇️ Download {file_prefix}.xlsx",
+                label=f"Download {file_prefix}.xlsx",
                 data=processed_data,
                 file_name=f"{file_prefix}_{timestamp}.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
