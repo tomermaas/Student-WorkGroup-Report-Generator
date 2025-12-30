@@ -26,7 +26,7 @@ if 'auth_token' not in st.session_state:
 # --- 2. SIDEBAR: LOGIN ---
 with st.sidebar:
     st.header("🔐 Login")
-    email = st.text_input("Email", value="tomer.maas@kidum.com")
+    email = st.text_input("Email")
     password = st.text_input("Password", type="password")
 
     if st.button("Log In"):
